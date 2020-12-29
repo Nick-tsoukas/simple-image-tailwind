@@ -11,6 +11,7 @@ function App() {
   */
 //  Adding loading just to use conditional 
 const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const getRedheads = async () => {
       return await fetch("https://esits.org/tumblr-json.php?url=https://beautiful-redheads.tumblr.com", {method: 'GET'})
@@ -29,12 +30,12 @@ const [loading, setLoading] = useState(true);
     
     getRedheads()
       .then((redheads) => setImages(() => [...redheads]))
-      .then(() => setLoading(false))
+      .then(() => setLoading(false));
 
 },[]);
 
   {
-    if(loading) {
+    if(!loading) {
       return (
         <div>
           <div style={{backgroundImage: `url(${freckles})`}} className="h-96 bg-black bg-center w-screen bg-cover"></div>
